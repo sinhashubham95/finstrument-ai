@@ -12,7 +12,7 @@ function initGlobalSearch() {
     // Normalize: uppercase, collapse spaces, replace forward slash with colon if common mistakes
     let symbol = raw.toUpperCase().replace(/\s+/g,'');
     // Route
-    window.location.href = '/instrument.html?tvwidgetsymbol=' + encodeURIComponent(symbol);
+    window.location.href = 'instrument.html?tvwidgetsymbol=' + encodeURIComponent(symbol);
   });
 }
 
