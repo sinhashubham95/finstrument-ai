@@ -10,6 +10,19 @@
   --radius: 14px;
 }
 
+@media (prefers-color-scheme: light) {
+  :root {
+    --bg: #f9fafb;
+    --panel: #ffffff;
+    --text: #111827;
+    --muted: #6b7280;
+    --brand: #0073e6;
+    --brand-2: #00aaff;
+    --card: #f3f4f6;
+    --border: rgba(0, 0, 0, 0.08);
+  }
+}
+
 * {
   box-sizing: border-box
 }

@@ -27,6 +27,33 @@ function setActiveNav() {
   });
 }
 
+function getTheme() {
+  return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+}
+
+function mountTV() {
+  document.querySelectorAll('script[src*="tradingview.com/external-embedding"]').forEach(s => {
+    try {
+      const cfg = JSON.parse(s.innerHTML);
+      cfg.colorTheme = getTheme();
+      s.innerHTML = JSON.stringify(cfg);
+    } catch (e) { }
+  });
+}
+
+mountTV();
+
+function reload() {
+  location.reload();
+}
+
+const mq = window.matchMedia("(prefers-color-scheme: dark)");
+if (mq.addEventListener) {
+  mq.addEventListener("change", reload);
+} else if (mq.addListener) {
+  mq.addListener(reload);
+}
+
 document.addEventListener('DOMContentLoaded', () => {
   initGlobalSearch();
   setActiveNav();
