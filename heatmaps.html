@@ -15,105 +15,110 @@
 
 <body>
   <header>
-    <div class="nav">
-      <a class="logo" href="index.html" aria-label="finstrument.ai home">
-        <img src="assets/logo.svg" alt="finstrument.ai logo" />
-        <span>finstrument.ai</span>
-      </a>
-      <nav aria-label="Primary">
-        <ul>
-          <li><a href="markets.html">Markets</a></li>
-          <li><a href="heatmaps.html">Heatmaps</a></li>
-          <li><a href="screener.html">Screeners</a></li>
-          <li><a href="calendar.html">Calendar</a></li>
-        </ul>
-      </nav>
-      <form id="global-search-form" class="search" role="search" aria-label="Global instrument search">
-        <input id="global-search-input" name="q" type="search"
-          placeholder="Search symbol: e.g. NSE:RELIANCE, NASDAQ:AAPL, BTCUSD, USDINR" autocomplete="off" />
-        <button type="submit" title="Go">Go</button>
-      </form>
-    </div>
-  </header>
-  <div class="container">
-
-    <div class="hero">
-      <div>
-        <h1>Heatmaps</h1>
-        <p>Spot strength & weakness across markets.</p>
+    <header>
+      <div class="nav">
+        <button id="menu-toggle" class="menu-btn" aria-label="Open menu" aria-expanded="false"
+          aria-controls="primary-nav">
+          ☰
+        </button>
+        <a class="logo" href="index.html" aria-label="finstrument.ai home">
+          <img src="assets/logo.svg" alt="finstrument.ai logo" />
+          <span>finstrument.ai</span>
+        </a>
+        <nav id="primary-nav" class="nav-links" aria-label="Primary">
+          <ul>
+            <li><a href="markets.html">Markets</a></li>
+            <li><a href="heatmaps.html">Heatmaps</a></li>
+            <li><a href="screener.html">Screeners</a></li>
+            <li><a href="calendar.html">Calendar</a></li>
+          </ul>
+        </nav>
+        <form id="global-search-form" class="search" role="search" aria-label="Global instrument search">
+          <input id="global-search-input" name="q" type="search"
+            placeholder="Search: NSE:RELIANCE, NASDAQ:AAPL, BTCUSD, USDINR" autocomplete="off" />
+          <button type="submit" title="Go">Go</button>
+        </form>
       </div>
-    </div>
+    </header>
+    <div class="container">
 
-    <div class="grid">
-      <div class="card col-12 tv-wrap">
-        <h2>Stocks Heatmap</h2>
-        <div class="tradingview-widget-container">
-          <div class="tradingview-widget-container__widget"></div>
-          <script type="text/javascript"
-            src="https://s3.tradingview.com/external-embedding/embed-widget-stock-heatmap.js" async>
-              {
-                "dataSource": "SPX500",
-                  "blockSize": "market_cap_basic",
-                    "blockColor": "change",
-                      "grouping": "sector",
-                        "width": "100%",
-                          "height": 520,
-                            "colorTheme": "dark",
-                              "hasTopBar": true,
-                                "isZoomEnabled": true,
-                                  "hasSymbolTooltip": true,
-                                    "isMonoSize": false,
-                                      "symbolUrl": "https://finstrument.ai/instrument.html"
-              }
-            </script>
+      <div class="hero">
+        <div>
+          <h1>Heatmaps</h1>
+          <p>Spot strength & weakness across markets.</p>
         </div>
       </div>
 
-      <div class="card col-6 tv-wrap">
-        <h2>Forex Heatmap</h2>
-        <div class="tradingview-widget-container">
-          <div class="tradingview-widget-container__widget"></div>
-          <script type="text/javascript"
-            src="https://s3.tradingview.com/external-embedding/embed-widget-forex-heat-map.js" async>
-              {
-                "width": "100%",
-                  "height": 520,
-                    "currencies": ["EUR", "USD", "JPY", "GBP", "AUD", "CAD", "CHF", "CNY", "INR"],
+      <div class="grid">
+        <div class="card col-12 tv-wrap">
+          <h2>Stocks Heatmap</h2>
+          <div class="tradingview-widget-container">
+            <div class="tradingview-widget-container__widget"></div>
+            <script type="text/javascript"
+              src="https://s3.tradingview.com/external-embedding/embed-widget-stock-heatmap.js" async>
+                {
+                  "dataSource": "SPX500",
+                    "blockSize": "market_cap_basic",
+                      "blockColor": "change",
+                        "grouping": "sector",
+                          "width": "100%",
+                            "height": 520,
+                              "colorTheme": "dark",
+                                "hasTopBar": true,
+                                  "isZoomEnabled": true,
+                                    "hasSymbolTooltip": true,
+                                      "isMonoSize": false,
+                                        "symbolUrl": "https://finstrument.ai/instrument.html"
+                }
+              </script>
+          </div>
+        </div>
+
+        <div class="card col-6 tv-wrap">
+          <h2>Forex Heatmap</h2>
+          <div class="tradingview-widget-container">
+            <div class="tradingview-widget-container__widget"></div>
+            <script type="text/javascript"
+              src="https://s3.tradingview.com/external-embedding/embed-widget-forex-heat-map.js" async>
+                {
+                  "width": "100%",
+                    "height": 520,
+                      "currencies": ["EUR", "USD", "JPY", "GBP", "AUD", "CAD", "CHF", "CNY", "INR"],
+                        "isTransparent": true,
+                          "colorTheme": "dark",
+                            "locale": "en",
+                              "largeChartUrl": "https://finstrument.ai/instrument.html"
+                }
+              </script>
+          </div>
+        </div>
+
+        <div class="card col-6 tv-wrap">
+          <h2>Crypto Heatmap</h2>
+          <div class="tradingview-widget-container">
+            <div class="tradingview-widget-container__widget"></div>
+            <script type="text/javascript"
+              src="https://s3.tradingview.com/external-embedding/embed-widget-crypto-coins-heatmap.js" async>
+                {
+                  "width": "100%",
+                    "height": 520,
                       "isTransparent": true,
                         "colorTheme": "dark",
                           "locale": "en",
-                            "largeChartUrl": "https://finstrument.ai/instrument.html"
-              }
-            </script>
+                            "symbolUrl": "https://finstrument.ai/instrument.html"
+                }
+              </script>
+          </div>
         </div>
       </div>
 
-      <div class="card col-6 tv-wrap">
-        <h2>Crypto Heatmap</h2>
-        <div class="tradingview-widget-container">
-          <div class="tradingview-widget-container__widget"></div>
-          <script type="text/javascript"
-            src="https://s3.tradingview.com/external-embedding/embed-widget-crypto-coins-heatmap.js" async>
-              {
-                "width": "100%",
-                  "height": 520,
-                    "isTransparent": true,
-                      "colorTheme": "dark",
-                        "locale": "en",
-                          "symbolUrl": "https://finstrument.ai/instrument.html"
-              }
-            </script>
-        </div>
+    </div>
+    <footer class="footer small">
+      <div class="container">
+        © 2025 finstrument.ai — All data & charts by TradingView.
+        <div class="badge">This site embeds only free TradingView widgets.</div>
       </div>
-    </div>
-
-  </div>
-  <footer class="footer small">
-    <div class="container">
-      © 2025 finstrument.ai — All data & charts by TradingView.
-      <div class="badge">This site embeds only free TradingView widgets.</div>
-    </div>
-  </footer>
+    </footer>
 </body>
 
 </html>

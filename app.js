@@ -58,3 +58,32 @@ document.addEventListener('DOMContentLoaded', () => {
   initGlobalSearch();
   setActiveNav();
 });
+
+// Mobile menu toggler
+(function () {
+  const btn = document.getElementById('menu-toggle');
+  const nav = document.getElementById('primary-nav');
+  if (!btn || !nav) return;
+
+  function closeMenu() {
+    nav.classList.remove('open');
+    btn.setAttribute('aria-expanded', 'false');
+  }
+  function openMenu() {
+    nav.classList.add('open');
+    btn.setAttribute('aria-expanded', 'true');
+  }
+  btn.addEventListener('click', () => {
+    nav.classList.contains('open') ? closeMenu() : openMenu();
+  });
+
+  // Close menu when clicking a link
+  nav.addEventListener('click', (e) => {
+    if (e.target.closest('a')) closeMenu();
+  });
+
+  // Auto-close when resizing back to desktop
+  window.addEventListener('resize', () => {
+    if (window.innerWidth > 768) closeMenu();
+  });
+})();

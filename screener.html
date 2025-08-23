@@ -16,11 +16,15 @@
 <body>
   <header>
     <div class="nav">
+      <button id="menu-toggle" class="menu-btn" aria-label="Open menu" aria-expanded="false"
+        aria-controls="primary-nav">
+        ☰
+      </button>
       <a class="logo" href="index.html" aria-label="finstrument.ai home">
         <img src="assets/logo.svg" alt="finstrument.ai logo" />
         <span>finstrument.ai</span>
       </a>
-      <nav aria-label="Primary">
+      <nav id="primary-nav" class="nav-links" aria-label="Primary">
         <ul>
           <li><a href="markets.html">Markets</a></li>
           <li><a href="heatmaps.html">Heatmaps</a></li>
@@ -30,7 +34,7 @@
       </nav>
       <form id="global-search-form" class="search" role="search" aria-label="Global instrument search">
         <input id="global-search-input" name="q" type="search"
-          placeholder="Search symbol: e.g. NSE:RELIANCE, NASDAQ:AAPL, BTCUSD, USDINR" autocomplete="off" />
+          placeholder="Search: NSE:RELIANCE, NASDAQ:AAPL, BTCUSD, USDINR" autocomplete="off" />
         <button type="submit" title="Go">Go</button>
       </form>
     </div>
