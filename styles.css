@@ -166,7 +166,7 @@ nav a.active {
   opacity: 0;
   pointer-events: none;
   transition: opacity .22s ease;
-  z-index: 80;
+  z-index: 2147483645;
 }
 
 .drawer {
@@ -180,14 +180,37 @@ nav a.active {
   box-shadow: 0 8px 28px rgba(0, 0, 0, .4);
   transform: translateX(-100%);
   transition: transform .26s cubic-bezier(.2, .8, .2, 1);
-  z-index: 90;
+  z-index: 2147483647;
   pointer-events: auto;
   display: flex;
   flex-direction: column;
 }
 
+#click-shield {
+  position: fixed;
+  inset: 0;
+  z-index: 2147483646;
+  display: none;
+  pointer-events: auto;
+  background: transparent;
+}
+
 .drawer.open {
   transform: none;
+}
+
+.drawer-open #click-shield {
+  display: block;
+}
+
+.drawer-open iframe[src*="tradingview.com"],
+.drawer-open .tradingview-widget-container,
+.drawer-open .tradingview-widget-container * {
+  pointer-events: none !important;
+}
+
+.drawer-open {
+  overflow: hidden;
 }
 
 .drawer-backdrop.open {
