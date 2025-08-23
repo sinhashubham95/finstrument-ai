@@ -59,31 +59,74 @@ document.addEventListener('DOMContentLoaded', () => {
   setActiveNav();
 });
 
-// Mobile menu toggler
-(function () {
+
+(function drawerController() {
   const btn = document.getElementById('menu-toggle');
-  const nav = document.getElementById('primary-nav');
-  if (!btn || !nav) return;
+  const drawer = document.getElementById('mobile-drawer');
+  const closeBtn = document.getElementById('drawer-close');
+  const backdrop = document.getElementById('drawer-backdrop');
 
-  function closeMenu() {
-    nav.classList.remove('open');
-    btn.setAttribute('aria-expanded', 'false');
+  if (!btn || !drawer || !closeBtn || !backdrop) return;
+
+  let lastFocus = null;
+
+  function getFocusable(root) {
+    return [...root.querySelectorAll('a, button, input, select, textarea, [tabindex]:not([tabindex="-1"])')]
+      .filter(el => !el.hasAttribute('disabled') && el.offsetParent !== null);
   }
-  function openMenu() {
-    nav.classList.add('open');
+
+  function open() {
+    lastFocus = document.activeElement;
+    document.documentElement.style.overflow = 'hidden'; // lock scroll
+    drawer.setAttribute('aria-hidden', 'false');
+    drawer.classList.add('open');
+    backdrop.hidden = false;
+    backdrop.classList.add('open');
     btn.setAttribute('aria-expanded', 'true');
+
+    const focusables = getFocusable(drawer);
+    if (focusables[0]) focusables[0].focus();
   }
+
+  function close() {
+    document.documentElement.style.overflow = '';
+    drawer.setAttribute('aria-hidden', 'true');
+    drawer.classList.remove('open');
+    backdrop.classList.remove('open');
+    // delay hide to allow fade
+    setTimeout(() => { backdrop.hidden = true; }, 200);
+    btn.setAttribute('aria-expanded', 'false');
+    if (lastFocus) lastFocus.focus();
+  }
+
   btn.addEventListener('click', () => {
-    nav.classList.contains('open') ? closeMenu() : openMenu();
+    const isOpen = drawer.classList.contains('open');
+    isOpen ? close() : open();
+  });
+  closeBtn.addEventListener('click', close);
+  backdrop.addEventListener('click', close);
+
+  // Close on link click
+  drawer.addEventListener('click', (e) => {
+    if (e.target.matches('.drawer-nav a')) close();
   });
 
-  // Close menu when clicking a link
-  nav.addEventListener('click', (e) => {
-    if (e.target.closest('a')) closeMenu();
+  // Esc to close + focus trap
+  document.addEventListener('keydown', (e) => {
+    if (!drawer.classList.contains('open')) return;
+    if (e.key === 'Escape') { e.preventDefault(); close(); return; }
+
+    if (e.key === 'Tab') {
+      const f = getFocusable(drawer);
+      if (!f.length) return;
+      const first = f[0], last = f[f.length - 1];
+      if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+      else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+    }
   });
 
-  // Auto-close when resizing back to desktop
+  // Close drawer if resized back to desktop
   window.addEventListener('resize', () => {
-    if (window.innerWidth > 768) closeMenu();
+    if (window.innerWidth > 768 && drawer.classList.contains('open')) close();
   });
 })();
