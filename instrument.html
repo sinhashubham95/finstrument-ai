@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Instrument — finstrument.ai</title>
+  <meta name="description" content="finstrument.ai — free, fast, and global insights on every tradable instrument, powered entirely by TradingView widgets.">
+  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+  <link rel="preconnect" href="https://s3.tradingview.com">
+  <link rel="stylesheet" href="/styles.css">
+  <script defer src="/app.js"></script>
+</head>
+<body>
+<header>
+  <div class="nav">
+    <a class="logo" href="/index.html" aria-label="finstrument.ai home">
+      <img src="/assets/logo.svg" alt="finstrument.ai logo"/>
+      <span>finstrument.ai</span>
+    </a>
+    <nav aria-label="Primary">
+      <ul>
+        <li><a href="/markets.html">Markets</a></li>
+        <li><a href="/heatmaps.html">Heatmaps</a></li>
+        <li><a href="/screener.html">Screeners</a></li>
+        <li><a href="/calendar.html">Calendar</a></li>
+      </ul>
+    </nav>
+    <form id="global-search-form" class="search" role="search" aria-label="Global instrument search">
+      <input id="global-search-input" name="q" type="search" placeholder="Search symbol: e.g. NSE:RELIANCE, NASDAQ:AAPL, BTCUSD, USDINR" autocomplete="off" />
+      <button type="submit" title="Go">Go</button>
+    </form>
+  </div>
+</header>
+<div class="container">
+
+  <div class="hero">
+    <div>
+      <h1 id="instrument-title">Instrument overview</h1>
+      <p>Use the search to jump to any symbol. URL supports <code>?tvwidgetsymbol=EXCHANGE:SYMBOL</code>.</p>
+    </div>
+  </div>
+
+  <div class="grid">
+    <div class="card col-12 tv-wrap">
+      <h2>Symbol info</h2>
+      <div class="tradingview-widget-container">
+        <div class="tradingview-widget-container__widget"></div>
+        <!-- Symbol Info (supports tvwidgetsymbol override) -->
+        <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-symbol-info.js" async>
+        {
+          "symbol": "NASDAQ:AAPL",
+          "colorTheme": "dark",
+          "isTransparent": true,
+          "width":"100%",
+          "locale":"en"
+        }
+        </script>
+      </div>
+    </div>
+
+    <div class="card col-12 tv-wrap" style="min-height:540px">
+      <h2>Advanced chart</h2>
+      <div class="tradingview-widget-container">
+        <div class="tradingview-widget-container__widget"></div>
+        <!-- Advanced Real-Time Chart (supports tvwidgetsymbol override) -->
+        <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-advanced-chart.js" async>
+        {
+          "symbol": "NASDAQ:AAPL",
+          "allow_symbol_change": true,
+          "interval": "D",
+          "timezone": "Etc/UTC",
+          "theme": "dark",
+          "style": "1",
+          "withdateranges": true,
+          "hide_side_toolbar": false,
+          "hide_top_toolbar": false,
+          "save_image": false,
+          "calendar": true,
+          "studies": [],
+          "support_host": "https://www.tradingview.com",
+          "locale": "en",
+          "width": "100%",
+          "height": 520
+        }
+        </script>
+      </div>
+      <div class="note">Tip: press <strong>/</strong> on the chart to open TradingView's inline symbol search.</div>
+    </div>
+
+    <div class="card col-6 tv-wrap">
+      <h2>Technical analysis</h2>
+      <div class="tradingview-widget-container">
+        <div class="tradingview-widget-container__widget"></div>
+        <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-technical-analysis.js" async>
+        {
+          "interval": "1D",
+          "width": "100%",
+          "height": 460,
+          "isTransparent": true,
+          "symbol": "NASDAQ:AAPL",
+          "showIntervalTabs": true,
+          "colorTheme": "dark",
+          "locale": "en"
+        }
+        </script>
+      </div>
+    </div>
+
+    <div class="card col-6 tv-wrap">
+      <h2>Top stories</h2>
+      <div class="tradingview-widget-container">
+        <div class="tradingview-widget-container__widget"></div>
+        <!-- News Top Stories: set feed to symbol; supports tvwidgetsymbol -->
+        <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-timeline.js" async>
+        {
+          "colorTheme": "dark",
+          "isTransparent": true,
+          "width": "100%",
+          "height": 460,
+          "feedMode": "symbol",
+          "symbol": "NASDAQ:AAPL",
+          "locale": "en"
+        }
+        </script>
+      </div>
+    </div>
+
+    <div class="card col-6 tv-wrap">
+      <h2>Company profile</h2>
+      <div class="tradingview-widget-container">
+        <div class="tradingview-widget-container__widget"></div>
+        <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-profile.js" async>
+        {
+          "symbol": "NASDAQ:AAPL",
+          "width":"100%",
+          "height": 360,
+          "colorTheme":"dark",
+          "isTransparent": true,
+          "locale":"en"
+        }
+        </script>
+      </div>
+      <div class="note small">Note: For non-equity symbols, this section may be empty.</div>
+    </div>
+
+    <div class="card col-6 tv-wrap">
+      <h2>Fundamental data</h2>
+      <div class="tradingview-widget-container">
+        <div class="tradingview-widget-container__widget"></div>
+        <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-financials.js" async>
+        {
+          "symbol": "NASDAQ:AAPL",
+          "colorTheme": "dark",
+          "isTransparent": true,
+          "width":"100%",
+          "height": 360,
+          "locale":"en"
+        }
+        </script>
+      </div>
+      <div class="note small">Note: Some symbols (like FX/crypto/indices) do not have fundamentals.</div>
+    </div>
+  </div>
+
+  <script>
+    // Update the heading with current symbol if present
+    const params = new URLSearchParams(location.search);
+    const sym = params.get('tvwidgetsymbol');
+    if (sym) {
+      document.getElementById('instrument-title').textContent = sym + ' — overview';
+    }
+  </script>
+
+</div>
+<footer class="footer small">
+  <div class="container">
+    © 2025 finstrument.ai — All data & charts by TradingView.
+    <div class="badge">This site embeds only free TradingView widgets.</div>
+  </div>
+</footer>
+</body>
+</html>

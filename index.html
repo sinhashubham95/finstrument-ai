@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>finstrument.ai — Global Markets Overview</title>
+  <meta name="description" content="finstrument.ai — free, fast, and global insights on every tradable instrument, powered entirely by TradingView widgets.">
+  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+  <link rel="preconnect" href="https://s3.tradingview.com">
+  <link rel="stylesheet" href="/styles.css">
+  <script defer src="/app.js"></script>
+</head>
+<body>
+<header>
+  <div class="nav">
+    <a class="logo" href="/index.html" aria-label="finstrument.ai home">
+      <img src="/assets/logo.svg" alt="finstrument.ai logo"/>
+      <span>finstrument.ai</span>
+    </a>
+    <nav aria-label="Primary">
+      <ul>
+        <li><a href="/markets.html">Markets</a></li>
+        <li><a href="/heatmaps.html">Heatmaps</a></li>
+        <li><a href="/screener.html">Screeners</a></li>
+        <li><a href="/calendar.html">Calendar</a></li>
+      </ul>
+    </nav>
+    <form id="global-search-form" class="search" role="search" aria-label="Global instrument search">
+      <input id="global-search-input" name="q" type="search" placeholder="Search symbol: e.g. NSE:RELIANCE, NASDAQ:AAPL, BTCUSD, USDINR" autocomplete="off" />
+      <button type="submit" title="Go">Go</button>
+    </form>
+  </div>
+</header>
+<div class="container">
+
+  <section class="hero">
+    <div>
+      <h1>Global market overview</h1>
+      <p>Clean, fast, and free. Search any instrument or browse highlights below.</p>
+    </div>
+  </section>
+
+  <div class="card col-12 tv-wrap" style="padding:0">
+    <!-- Ticker Tape -->
+    <div class="tradingview-widget-container">
+      <div class="tradingview-widget-container__widget"></div>
+      <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
+      {
+        "symbols": [
+          {"proName": "FOREXCOM:SPXUSD"}, {"proName": "FOREXCOM:NSXUSD"}, {"proName": "FOREXCOM:DJI"},
+          {"proName": "OANDA:XAUUSD"}, {"proName": "CAPITALCOM:USOIL"}, {"proName": "OANDA:USDINR"},
+          {"proName": "BITSTAMP:BTCUSD"}, {"proName": "BITSTAMP:ETHUSD"}, {"proName": "CRYPTO:SOLUSD"},
+          {"proName": "BSE:SENSEX"}, {"proName": "NSE:NIFTY"}
+        ],
+        "showSymbolLogo": true,
+        "isTransparent": true,
+        "displayMode": "adaptive",
+        "colorTheme": "dark",
+        "locale": "en"
+      }
+      </script>
+    </div>
+  </div>
+
+  <div class="grid">
+    <div class="card col-8 tv-wrap">
+      <h2>Macro snapshot</h2>
+      <!-- Market Overview -->
+      <div class="tradingview-widget-container">
+        <div class="tradingview-widget-container__widget"></div>
+        <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-market-overview.js" async>
+        {
+          "colorTheme": "dark",
+          "dateRange": "12M",
+          "showChart": true,
+          "locale": "en",
+          "isTransparent": true,
+          "showSymbolLogo": true,
+          "width": "100%",
+          "height": 560,
+          "tabs": [
+            {
+              "title": "Indices",
+              "symbols": [
+                {"s": "FOREXCOM:SPXUSD", "d": "S&P 500"},
+                {"s": "FOREXCOM:NSXUSD", "d": "Nasdaq 100"},
+                {"s": "FOREXCOM:DJI", "d": "Dow 30"},
+                {"s": "NSE:NIFTY", "d": "NIFTY 50"},
+                {"s": "BSE:SENSEX", "d": "Sensex"},
+                {"s": "INDEX:UKX", "d": "FTSE 100"},
+                {"s": "INDEX:NKY", "d": "Nikkei 225"},
+                {"s": "XETR:DAX", "d": "DAX"}
+              ]
+            },
+            {
+              "title": "Forex",
+              "symbols": [
+                {"s": "OANDA:USDINR"}, {"s": "FX:EURUSD"}, {"s": "FX:GBPUSD"}, {"s": "FX:USDJPY"}, {"s": "FX:AUDUSD"}
+              ]
+            },
+            {
+              "title": "Commodities",
+              "symbols": [
+                {"s": "OANDA:XAUUSD", "d":"Gold"}, {"s":"OANDA:XAGUSD","d":"Silver"},
+                {"s":"CAPITALCOM:USOIL","d":"Crude Oil"}, {"s":"NYMEX:NG1!","d":"Natural Gas"}
+              ]
+            },
+            {
+              "title": "Crypto",
+              "symbols": [
+                {"s":"BITSTAMP:BTCUSD"}, {"s":"BITSTAMP:ETHUSD"}, {"s":"CRYPTO:SOLUSD"}, {"s":"COINBASE:ADAUSD"}
+              ]
+            }
+          ]
+        }
+        </script>
+      </div>
+    </div>
+
+    <div class="card col-4 tv-wrap">
+      <h2>Economic calendar</h2>
+      <div class="tradingview-widget-container">
+        <div class="tradingview-widget-container__widget"></div>
+        <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-events.js" async>
+        {
+          "colorTheme": "dark",
+          "isTransparent": true,
+          "width": "100%",
+          "height": 560,
+          "locale": "en",
+          "importanceFilter": "-1,0,1"
+        }
+        </script>
+      </div>
+    </div>
+
+    <div class="card col-12 tv-wrap">
+      <h2>Stocks heatmap</h2>
+      <div class="tradingview-widget-container">
+        <div class="tradingview-widget-container__widget"></div>
+        <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-stock-heatmap.js" async>
+        {
+          "dataSource": "WORLD",
+          "blockSize": "market_cap_basic",
+          "blockColor": "change",
+          "grouping": "sector",
+          "width": "100%",
+          "height": 520,
+          "colorTheme": "dark",
+          "hasTopBar": true,
+          "isDataSetEnabled": false,
+          "isZoomEnabled": true,
+          "hasSymbolTooltip": true,
+          "isMonoSize": false
+        }
+        </script>
+      </div>
+      <div class="note">Tip: use the global search (top-right) to jump straight to any symbol’s full page.</div>
+    </div>
+  </div>
+
+</div>
+<footer class="footer small">
+  <div class="container">
+    © 2025 finstrument.ai — All data & charts by TradingView.
+    <div class="badge">This site embeds only free TradingView widgets.</div>
+  </div>
+</footer>
+</body>
+</html>

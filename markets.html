@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Markets — finstrument.ai</title>
+  <meta name="description" content="finstrument.ai — free, fast, and global insights on every tradable instrument, powered entirely by TradingView widgets.">
+  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+  <link rel="preconnect" href="https://s3.tradingview.com">
+  <link rel="stylesheet" href="/styles.css">
+  <script defer src="/app.js"></script>
+</head>
+<body>
+<header>
+  <div class="nav">
+    <a class="logo" href="/index.html" aria-label="finstrument.ai home">
+      <img src="/assets/logo.svg" alt="finstrument.ai logo"/>
+      <span>finstrument.ai</span>
+    </a>
+    <nav aria-label="Primary">
+      <ul>
+        <li><a href="/markets.html">Markets</a></li>
+        <li><a href="/heatmaps.html">Heatmaps</a></li>
+        <li><a href="/screener.html">Screeners</a></li>
+        <li><a href="/calendar.html">Calendar</a></li>
+      </ul>
+    </nav>
+    <form id="global-search-form" class="search" role="search" aria-label="Global instrument search">
+      <input id="global-search-input" name="q" type="search" placeholder="Search symbol: e.g. NSE:RELIANCE, NASDAQ:AAPL, BTCUSD, USDINR" autocomplete="off" />
+      <button type="submit" title="Go">Go</button>
+    </form>
+  </div>
+</header>
+<div class="container">
+
+  <div class="hero">
+    <div>
+      <h1>Markets</h1>
+      <p>Browse major asset classes at a glance.</p>
+    </div>
+  </div>
+
+  <div class="grid">
+    <div class="card col-12 tv-wrap">
+      <h2>Market overview</h2>
+      <div class="tradingview-widget-container">
+        <div class="tradingview-widget-container__widget"></div>
+        <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-market-overview.js" async>
+        {
+          "colorTheme": "dark",
+          "locale": "en",
+          "isTransparent": true,
+          "showSymbolLogo": true,
+          "width": "100%",
+          "height": 640,
+          "tabs": [
+            {"title":"Stocks","symbols":[
+              {"s":"NASDAQ:AAPL"},{"s":"NASDAQ:NVDA"},{"s":"NASDAQ:MSFT"},{"s":"NYSE:BRK.B"},{"s":"NSE:RELIANCE"}]},
+            {"title":"Indices","symbols":[
+              {"s":"FOREXCOM:SPXUSD"},{"s":"FOREXCOM:NSXUSD"},{"s":"FOREXCOM:DJI"},{"s":"BSE:SENSEX"},{"s":"NSE:NIFTY"}]},
+            {"title":"Forex","symbols":[{"s":"FX:EURUSD"},{"s":"FX:GBPUSD"},{"s":"FX:USDJPY"},{"s":"OANDA:USDINR"}]},
+            {"title":"Crypto","symbols":[{"s":"BITSTAMP:BTCUSD"},{"s":"BITSTAMP:ETHUSD"},{"s":"CRYPTO:SOLUSD"}]},
+            {"title":"Commodities","symbols":[{"s":"OANDA:XAUUSD"},{"s":"CAPITALCOM:USOIL"},{"s":"NYMEX:NG1!"}]}
+          ]
+        }
+        </script>
+      </div>
+    </div>
+  </div>
+
+</div>
+<footer class="footer small">
+  <div class="container">
+    © 2025 finstrument.ai — All data & charts by TradingView.
+    <div class="badge">This site embeds only free TradingView widgets.</div>
+  </div>
+</footer>
+</body>
+</html>
