@@ -65,10 +65,10 @@ document.addEventListener('DOMContentLoaded', () => {
   const drawer = document.getElementById('mobile-drawer');
   const closeBtn = document.getElementById('drawer-close');
   const backdrop = document.getElementById('drawer-backdrop');
-
   if (!btn || !drawer || !closeBtn || !backdrop) return;
 
   let lastFocus = null;
+  const ANIM_MS = 220; // match CSS transition
 
   function getFocusable(root) {
     return [...root.querySelectorAll('a, button, input, select, textarea, [tabindex]:not([tabindex="-1"])')]
@@ -77,45 +77,48 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function open() {
     lastFocus = document.activeElement;
-    document.documentElement.style.overflow = 'hidden'; // lock scroll
+    document.documentElement.style.overflow = 'hidden';
     drawer.setAttribute('aria-hidden', 'false');
     drawer.classList.add('open');
     backdrop.hidden = false;
     backdrop.classList.add('open');
     btn.setAttribute('aria-expanded', 'true');
-
-    const focusables = getFocusable(drawer);
-    if (focusables[0]) focusables[0].focus();
+    const f = getFocusable(drawer);
+    if (f[0]) f[0].focus();
   }
 
   function close() {
-    document.documentElement.style.overflow = '';
-    drawer.setAttribute('aria-hidden', 'true');
-    drawer.classList.remove('open');
-    backdrop.classList.remove('open');
-    // delay hide to allow fade
-    setTimeout(() => { backdrop.hidden = true; }, 200);
-    btn.setAttribute('aria-expanded', 'false');
-    if (lastFocus) lastFocus.focus();
+    return new Promise(resolve => {
+      document.documentElement.style.overflow = '';
+      drawer.setAttribute('aria-hidden', 'true');
+      drawer.classList.remove('open');
+      backdrop.classList.remove('open');
+      setTimeout(() => { backdrop.hidden = true; resolve(); }, ANIM_MS);
+      btn.setAttribute('aria-expanded', 'false');
+      if (lastFocus) lastFocus.focus();
+    });
   }
 
   btn.addEventListener('click', () => {
-    const isOpen = drawer.classList.contains('open');
-    isOpen ? close() : open();
+    drawer.classList.contains('open') ? close() : open();
   });
-  closeBtn.addEventListener('click', close);
-  backdrop.addEventListener('click', close);
+  closeBtn.addEventListener('click', () => { close(); });
+  backdrop.addEventListener('click', () => { close(); });
 
-  // Close on link click
-  drawer.addEventListener('click', (e) => {
-    if (e.target.matches('.drawer-nav a')) close();
+  // ✅ Robust link handling: works even if you tap a child element
+  drawer.addEventListener('click', async (e) => {
+    const link = e.target.closest('.drawer-nav a, .drawer-header a');
+    if (!link) return;
+    e.preventDefault();            // prevent native nav
+    const href = link.getAttribute('href');
+    await close();                 // wait for animation
+    if (href) window.location.href = href;
   });
 
-  // Esc to close + focus trap
+  // Esc + focus trap (unchanged)
   document.addEventListener('keydown', (e) => {
     if (!drawer.classList.contains('open')) return;
     if (e.key === 'Escape') { e.preventDefault(); close(); return; }
-
     if (e.key === 'Tab') {
       const f = getFocusable(drawer);
       if (!f.length) return;
@@ -125,7 +128,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  // Close drawer if resized back to desktop
   window.addEventListener('resize', () => {
     if (window.innerWidth > 768 && drawer.classList.contains('open')) close();
   });

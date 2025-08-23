@@ -181,6 +181,7 @@ nav a.active {
   transform: translateX(-100%);
   transition: transform .26s cubic-bezier(.2, .8, .2, 1);
   z-index: 90;
+  pointer-events: auto;
   display: flex;
   flex-direction: column;
 }
@@ -249,6 +250,7 @@ nav a.active {
   border-radius: 10px;
   text-decoration: none;
   color: var(--text);
+  position: relative;
 }
 
 .drawer-nav a:hover {
