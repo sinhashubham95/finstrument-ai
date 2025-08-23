@@ -5,12 +5,12 @@ function initGlobalSearch() {
   const form = document.getElementById('global-search-form');
   if (!form) return;
   const input = document.getElementById('global-search-input');
-  form.addEventListener('submit', function(e){
+  form.addEventListener('submit', function (e) {
     e.preventDefault();
     const raw = (input.value || '').trim();
     if (!raw) return;
     // Normalize: uppercase, collapse spaces, replace forward slash with colon if common mistakes
-    let symbol = raw.toUpperCase().replace(/\s+/g,'');
+    let symbol = raw.toUpperCase().replace(/\s+/g, '');
     // Route
     window.location.href = 'instrument.html?tvwidgetsymbol=' + encodeURIComponent(symbol);
   });
