@@ -2,14 +2,37 @@
 <html lang="en">
 
 <head>
-  <meta charset="utf-8">
+  <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>finstrument.ai — Global Markets Overview</title>
+  <meta name="author" content="finstrument.ai">
+  <meta name="robots" content="index, follow">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="finstrument.ai">
+  <meta property="og:image" content="https://finstrument.ai/assets/preview.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <title>finstrument.ai — Free Global Trading Instrument Insights</title>
   <meta name="description"
-    content="finstrument.ai — free, fast, and global insights on every tradable instrument, powered entirely by TradingView widgets.">
+    content="finstrument.ai gives free access to charts, heatmaps, screeners, and insights for all trading instruments worldwide using TradingView widgets.">
+  <meta property="og:title" content="finstrument.ai — Free Global Trading Instrument Insights">
+  <meta property="og:description"
+    content="Free charts, heatmaps, screeners, and market summaries for stocks, forex, crypto, indices, and commodities.">
   <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
   <link rel="preconnect" href="https://s3.tradingview.com">
   <link rel="stylesheet" href="styles.css">
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "finstrument.ai",
+      "url": "https://finstrument.ai/",
+      "description": "Free global insights for stocks, forex, crypto, indices, and commodities powered by TradingView widgets.",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://finstrument.ai/instrument.html?tvwidgetsymbol={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    }
+  </script>
   <script defer src="app.js"></script>
 </head>
 
