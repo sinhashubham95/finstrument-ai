@@ -468,3 +468,10 @@ nav a.active {
 .small {
   font-size: 12px
 }
+
+.widget-desc {
+  font-size: 14px;
+  line-height: 1.5;
+  margin: 8px 0 16px;
+  color: var(--muted);
+}
