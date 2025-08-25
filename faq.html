@@ -1,0 +1,262 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+
+  <title>FAQ — finstrument.ai</title>
+  <meta name="description"
+    content="Answers to common questions about finstrument.ai: symbols, markets, data sources, delays, search, and TradingView widgets." />
+
+  <!-- Canonical + Open Graph -->
+  <link rel="canonical" href="https://finstrument.ai/faq.html" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="finstrument.ai" />
+  <meta property="og:title" content="FAQ — finstrument.ai" />
+  <meta property="og:description"
+    content="Answers to common questions about symbols, markets, search, and TradingView widgets." />
+  <meta property="og:url" content="https://finstrument.ai/faq.html" />
+  <meta property="og:image" content="https://finstrument.ai/assets/preview.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <!-- Styles & app -->
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+  <link rel="stylesheet" href="styles.css?v=faq1" />
+  <script defer src="app.js?v=faq1"></script>
+
+  <!-- FAQPage Schema (JSON-LD) -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"FAQPage",
+    "mainEntity":[
+      {
+        "@type":"Question",
+        "name":"What is finstrument.ai?",
+        "acceptedAnswer":{"@type":"Answer","text":"A free website offering global market insights using TradingView’s free widgets—charts, heatmaps, screeners, news, and calendars."}
+      },
+      {
+        "@type":"Question",
+        "name":"Which markets and instruments are covered?",
+        "acceptedAnswer":{"@type":"Answer","text":"Stocks, indices, forex pairs, cryptocurrencies, and commodities. Coverage depends on TradingView’s data availability for each symbol/exchange."}
+      },
+      {
+        "@type":"Question",
+        "name":"How do I search for a symbol?",
+        "acceptedAnswer":{"@type":"Answer","text":"Use the global search in the header. Enter symbols like NSE:RELIANCE, NASDAQ:AAPL, BTCUSD, or OANDA:USDINR. You’ll be taken to the instrument page with an advanced chart and insights."}
+      },
+      {
+        "@type":"Question",
+        "name":"What symbol formats work best?",
+        "acceptedAnswer":{"@type":"Answer","text":"Preferred format is EXCHANGE:SYMBOL (e.g., NSE:TCS, NASDAQ:MSFT). Some pairs like EURUSD or BTCUSD also work without exchange prefixes."}
+      },
+      {
+        "@type":"Question",
+        "name":"Are prices real-time?",
+        "acceptedAnswer":{"@type":"Answer","text":"TradingView’s free widgets may be real-time or delayed depending on the market and exchange licensing. For many equities, data can be delayed. Crypto is typically real-time from supported venues."}
+      },
+      {
+        "@type":"Question",
+        "name":"Where does the data come from?",
+        "acceptedAnswer":{"@type":"Answer","text":"All charts and data on finstrument.ai are embedded from TradingView’s official free widgets. We don’t store or sell any market data."}
+      },
+      {
+        "@type":"Question",
+        "name":"Why do some widgets show limited info for certain symbols?",
+        "acceptedAnswer":{"@type":"Answer","text":"Some widgets (e.g., Fundamentals or Profile) apply primarily to equities. Non-equity instruments like FX, crypto, or indices may not have those sections."}
+      },
+      {
+        "@type":"Question",
+        "name":"Can I change the theme?",
+        "acceptedAnswer":{"@type":"Answer","text":"The site respects your system’s dark/light preference and loads widgets to match. If you switch system theme while viewing, refresh the page to reload widgets in the new theme."}
+      },
+      {
+        "@type":"Question",
+        "name":"How do I share a specific instrument view?",
+        "acceptedAnswer":{"@type":"Answer","text":"Open the instrument page and copy the URL—it includes the tvwidgetsymbol query parameter so others can see the same symbol instantly."}
+      },
+      {
+        "@type":"Question",
+        "name":"Is finstrument.ai free to use?",
+        "acceptedAnswer":{"@type":"Answer","text":"Yes—finstrument.ai uses only TradingView’s free widgets and is free to use. All data and charts are © TradingView."}
+      }
+    ]
+  }
+  </script>
+
+  <style>
+    /* Optional: light FAQ polish using your variables */
+    .faq-wrap {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 18px 16px 56px;
+    }
+
+    .faq-wrap h1 {
+      margin: 8px 0 16px;
+      font-size: 26px;
+    }
+
+    .faq-item {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 14px;
+      margin-bottom: 12px;
+    }
+
+    .faq-item h2 {
+      font-size: 16px;
+      margin: 0 0 8px;
+      color: #bfe9ff;
+    }
+
+    .faq-item p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="nav">
+      <button id="menu-toggle" class="menu-btn" aria-label="Open menu" aria-expanded="false"
+        aria-controls="primary-nav">
+        ☰
+      </button>
+      <a class="logo" href="index.html" aria-label="finstrument.ai home">
+        <img src="assets/logo.svg" alt="finstrument.ai logo" />
+        <span>finstrument.ai</span>
+      </a>
+      <nav id="primary-nav" class="nav-links" aria-label="Primary">
+        <ul>
+          <li><a href="markets.html">Markets</a></li>
+          <li><a href="heatmaps.html">Heatmaps</a></li>
+          <li><a href="screener.html">Screeners</a></li>
+          <li><a href="calendar.html">Calendar</a></li>
+          <li><a href="faq.html">FAQ</a></li>
+          <li><a href="blogs/index.html">Blogs</a></li>
+        </ul>
+      </nav>
+      <form id="global-search-form" class="search" role="search" aria-label="Global instrument search">
+        <input id="global-search-input" name="q" type="search"
+          placeholder="Search: NSE:RELIANCE, NASDAQ:AAPL, BTCUSD, USDINR" autocomplete="off" />
+        <button type="submit" title="Go">Go</button>
+      </form>
+    </div>
+  </header>
+  <div id="drawer-backdrop" class="drawer-backdrop" hidden></div>
+  <aside id="mobile-drawer" class="drawer" aria-hidden="true" aria-label="Site menu">
+    <div class="drawer-header">
+      <span class="drawer-title">
+        <img src="assets/logo.svg" alt="" />
+        finstrument.ai
+      </span>
+      <button id="drawer-close" class="drawer-close" aria-label="Close menu">✕</button>
+    </div>
+    <form class="drawer-search" role="search"
+      onsubmit="event.preventDefault(); document.getElementById('global-search-input').value=this.q.value; document.getElementById('global-search-form').dispatchEvent(new Event('submit'));">
+      <input type="search" name="q" placeholder="Search any symbol…" />
+      <button type="submit">Go</button>
+    </form>
+    <nav class="drawer-nav" aria-label="Mobile">
+      <a href="index.html">Home</a>
+      <a href="markets.html">Markets</a>
+      <a href="heatmaps.html">Heatmaps</a>
+      <a href="screener.html">Screeners</a>
+      <a href="calendar.html">Calendar</a>
+      <a href="faq.html">FAQ</a>
+      <a href="blogs/index.html">Blogs</a>
+    </nav>
+    <div class="drawer-footer">
+      <small>© 2025 finstrument.ai</small>
+    </div>
+  </aside>
+  <div id="click-shield" aria-hidden="true"></div>
+
+  <main class="faq-wrap">
+    <h1>Frequently Asked Questions</h1>
+
+    <div class="faq-item">
+      <h2>What is finstrument.ai?</h2>
+      <p>finstrument.ai is a free hub for global market insights powered entirely by TradingView’s free
+        widgets—charts, heatmaps, screeners, news, and an economic calendar.</p>
+    </div>
+
+    <div class="faq-item">
+      <h2>Which markets and instruments are covered?</h2>
+      <p>We cover stocks, indices, forex pairs, cryptocurrencies, and commodities, depending on TradingView’s
+        exchange coverage for each symbol.</p>
+    </div>
+
+    <div class="faq-item">
+      <h2>How do I search for a symbol?</h2>
+      <p>Use the global search in the header. Try formats like <strong>NSE:RELIANCE</strong>,
+        <strong>NASDAQ:AAPL</strong>, <strong>BTCUSD</strong>, or <strong>OANDA:USDINR</strong>. You’ll land on
+        the instrument page with an advanced chart and insights.
+      </p>
+    </div>
+
+    <div class="faq-item">
+      <h2>What symbol formats work best?</h2>
+      <p>The recommended format is <strong>EXCHANGE:SYMBOL</strong> (e.g., <strong>NSE:TCS</strong>,
+        <strong>NASDAQ:MSFT</strong>). Some pairs like <strong>EURUSD</strong> or <strong>BTCUSD</strong> also
+        work without an exchange prefix.
+      </p>
+    </div>
+
+    <div class="faq-item">
+      <h2>Are prices real-time?</h2>
+      <p>Free widgets can be real-time or delayed based on the exchange’s licensing policy. Crypto is often
+        real-time; some equity feeds are delayed.</p>
+    </div>
+
+    <div class="faq-item">
+      <h2>Where does the data come from?</h2>
+      <p>All data and charts come directly from TradingView’s official free widgets. finstrument.ai doesn’t store
+        or sell market data.</p>
+    </div>
+
+    <div class="faq-item">
+      <h2>Why do some sections look empty for certain symbols?</h2>
+      <p>Fundamentals and Company Profile mainly apply to equities; instruments like indices or forex pairs may
+        not show those sections.</p>
+    </div>
+
+    <div class="faq-item">
+      <h2>Can I change the theme?</h2>
+      <p>The site follows your system’s dark/light setting and loads widgets accordingly. If you switch system
+        theme mid-session, refresh to see widgets in the new theme.</p>
+    </div>
+
+    <div class="faq-item">
+      <h2>How do I share a specific instrument view?</h2>
+      <p>Copy the instrument page URL—it includes the <code>tvwidgetsymbol</code> parameter so anyone can open the
+        same symbol directly.</p>
+    </div>
+
+    <div class="faq-item">
+      <h2>Is finstrument.ai free?</h2>
+      <p>Yes. finstrument.ai uses only TradingView’s free widgets and is completely free to use. All data &amp;
+        charts © TradingView.</p>
+    </div>
+  </main>
+
+  <!-- Your existing drawer/backdrop/shield (if present on other pages) -->
+  <div id="drawer-backdrop" class="drawer-backdrop" hidden></div>
+  <aside id="mobile-drawer" class="drawer" aria-hidden="true" aria-label="Site menu">
+    <!-- (reuse your existing drawer content if you include it on all pages) -->
+  </aside>
+  <div id="click-shield" aria-hidden="true"></div>
+
+  <footer class="footer small">
+    <div class="container">
+      © 2025 finstrument.ai — All data &amp; charts by TradingView.
+    </div>
+  </footer>
+</body>
+
+</html>

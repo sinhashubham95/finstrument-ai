@@ -1,0 +1,236 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Meta -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+
+  <title>Using the Market Overview to Read Risk-On vs Risk-Off — finstrument.ai</title>
+  <meta name="description"
+    content="Learn how to use the Market Overview dashboard on finstrument.ai to quickly read whether markets are in risk-on or risk-off mode, across stocks, bonds, forex, commodities, and crypto." />
+  <link rel="canonical" href="https://finstrument.ai/blogs/market-overview-how-to.html" />
+
+  <!-- Open Graph / Twitter -->
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="finstrument.ai" />
+  <meta property="og:title" content="Using the Market Overview to Read Risk-On vs Risk-Off — finstrument.ai" />
+  <meta property="og:description"
+    content="A practical guide to interpreting cross-asset signals from the Market Overview to spot global risk appetite shifts." />
+  <meta property="og:url" content="https://finstrument.ai/blogs/market-overview-how-to.html" />
+  <meta property="og:image" content="https://finstrument.ai/assets/preview.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <!-- Assets -->
+  <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg" />
+  <link rel="stylesheet" href="../styles.css?v=blog-mo1" />
+  <script defer src="../app.js?v=blog-mo1"></script>
+
+  <!-- JSON-LD: Article -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"Article",
+    "headline":"Using the Market Overview to Read Risk-On vs Risk-Off",
+    "description":"Learn how to use the Market Overview dashboard on finstrument.ai to quickly read whether markets are in risk-on or risk-off mode, across stocks, bonds, forex, commodities, and crypto.",
+    "author":{"@type":"Organization","name":"finstrument.ai"},
+    "publisher":{"@type":"Organization","name":"finstrument.ai"},
+    "datePublished":"2025-08-24",
+    "dateModified":"2025-08-24",
+    "mainEntityOfPage":{"@type":"WebPage","@id":"https://finstrument.ai/blogs/market-overview-how-to.html"},
+    "image":"https://finstrument.ai/assets/preview.png"
+  }
+  </script>
+
+  <!-- JSON-LD: Breadcrumbs -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"BreadcrumbList",
+    "itemListElement":[
+      {"@type":"ListItem","position":1,"name":"Home","item":"https://finstrument.ai/"},
+      {"@type":"ListItem","position":2,"name":"Blog & Insights","item":"https://finstrument.ai/blogs/"},
+      {"@type":"ListItem","position":3,"name":"Using the Market Overview to Read Risk-On vs Risk-Off","item":"https://finstrument.ai/blogs/market-overview-how-to.html"}
+    ]
+  }
+  </script>
+
+  <style>
+    .blog-wrap {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 18px 16px 64px;
+    }
+
+    .post {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 18px;
+    }
+
+    .post h1 {
+      margin: 4px 0 10px;
+      font-size: 28px;
+    }
+
+    .post .sub {
+      color: var(--muted);
+      margin: 0 0 16px;
+    }
+
+    .post h2 {
+      margin-top: 22px;
+      font-size: 20px;
+    }
+
+    .post p {
+      line-height: 1.75;
+      color: var(--text);
+    }
+
+    .post ul {
+      padding-left: 18px;
+    }
+
+    .cta {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 14px;
+      margin-top: 20px;
+    }
+
+    .note {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .linkish {
+      color: #bfe9ff;
+      text-decoration: none;
+    }
+
+    .linkish:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="nav">
+      <button id="menu-toggle" class="menu-btn" aria-label="Open menu" aria-expanded="false"
+        aria-controls="primary-nav">☰</button>
+      <a class="logo" href="../index.html" aria-label="finstrument.ai home">
+        <img src="../assets/logo.svg" alt="finstrument.ai logo" />
+        <span>finstrument.ai</span>
+      </a>
+      <nav id="primary-nav" class="nav-links" aria-label="Primary">
+        <ul>
+          <li><a href="../markets.html">Markets</a></li>
+          <li><a href="../heatmaps.html">Heatmaps</a></li>
+          <li><a href="../screener.html">Screeners</a></li>
+          <li><a href="../calendar.html">Calendar</a></li>
+          <li><a href="../faq.html">FAQ</a></li>
+          <li><a class="active" href="index.html">Blogs</a></li>
+        </ul>
+      </nav>
+      <form id="global-search-form" class="search" role="search" aria-label="Global instrument search">
+        <input id="global-search-input" name="q" type="search" placeholder="Search: equities, bonds, USD, oil, BTC"
+          autocomplete="off" />
+        <button type="submit" title="Go">Go</button>
+      </form>
+    </div>
+  </header>
+
+  <!-- Drawer -->
+  <div id="drawer-backdrop" class="drawer-backdrop" hidden></div>
+  <aside id="mobile-drawer" class="drawer" aria-hidden="true" aria-label="Site menu">
+    <div class="drawer-header">
+      <span class="drawer-title"><img src="../assets/logo.svg" alt="" /> finstrument.ai</span>
+      <button id="drawer-close" class="drawer-close" aria-label="Close menu">✕</button>
+    </div>
+    <form class="drawer-search" role="search"
+      onsubmit="event.preventDefault(); document.getElementById('global-search-input').value=this.q.value; document.getElementById('global-search-form').dispatchEvent(new Event('submit'));">
+      <input type="search" name="q" placeholder="Search any symbol…" />
+      <button type="submit">Go</button>
+    </form>
+    <nav class="drawer-nav" aria-label="Mobile">
+      <a href="../index.html">Home</a>
+      <a href="../markets.html">Markets</a>
+      <a href="../heatmaps.html">Heatmaps</a>
+      <a href="../screener.html">Screeners</a>
+      <a href="../calendar.html">Calendar</a>
+      <a href="../faq.html">FAQ</a>
+      <a href="index.html">Blogs</a>
+    </nav>
+    <div class="drawer-footer"><small>© 2025 finstrument.ai</small></div>
+  </aside>
+  <div id="click-shield" aria-hidden="true"></div>
+
+  <main class="blog-wrap">
+    <article class="post">
+      <h1>Using the Market Overview to Read Risk-On vs Risk-Off</h1>
+      <p class="sub">A simple playbook to interpret global cross-asset signals and quickly tell if markets are
+        leaning risk-on or risk-off.</p>
+
+      <h2>Why cross-asset overview matters</h2>
+      <p>
+        No market moves in isolation. Equities, bonds, currencies, commodities, and crypto often reflect the
+        same underlying sentiment—risk appetite or fear. By scanning them together, you can anticipate
+        rotations, confirm signals, and avoid trading against the tide.
+      </p>
+
+      <h2>Risk-on signals</h2>
+      <ul>
+        <li>Equities up broadly (indices and breadth strong).</li>
+        <li>High-yield and small caps outperforming defensives.</li>
+        <li>Commodities like oil, copper rising on growth bets.</li>
+        <li>USD and JPY weak, risk FX (AUD, emerging markets) strong.</li>
+        <li>Crypto majors rallying alongside equities.</li>
+      </ul>
+
+      <h2>Risk-off signals</h2>
+      <ul>
+        <li>Equities down broadly; defensives (healthcare, staples) outperform.</li>
+        <li>Bond yields falling as money flows to safety.</li>
+        <li>Gold rising as a hedge; oil/copper often weak.</li>
+        <li>USD and JPY strengthening, EM FX under pressure.</li>
+        <li>Crypto correcting, especially altcoins.</li>
+      </ul>
+
+      <h2>How to use finstrument.ai's Market Overview</h2>
+      <p>
+        Go to the <a class="linkish" href="../markets.html">Markets</a> page to see a live cross-asset dashboard
+        powered by TradingView widgets. Indices, currencies, commodities, and crypto are shown together, helping
+        you instantly gauge sentiment.
+      </p>
+      <p>
+        Combine it with <a class="linkish" href="../heatmaps.html">Heatmaps</a> for sector-level color, and the
+        <a class="linkish" href="../calendar.html">Economic Calendar</a> to explain sudden shifts.
+      </p>
+
+      <h2>Putting it all together</h2>
+      <p>
+        If equities, oil, and crypto are all rising while USD and bonds are weak, it's risk-on. If gold and
+        bonds are rallying while equities and crypto slump, it's risk-off. Training your eye to read these
+        combinations helps you align trades with global flows.
+      </p>
+
+      <div class="cta">
+        <strong>Try it now:</strong> Visit the <a class="linkish" href="../markets.html">Market Overview</a> and
+        check if today feels risk-on or risk-off. Then cross-check with the <a class="linkish"
+          href="../heatmaps.html">Heatmaps</a> and <a class="linkish" href="../calendar.html">Calendar</a>.
+        <div class="note" style="margin-top:8px">All data &amp; charts © TradingView. This guide is educational,
+          not financial advice.</div>
+      </div>
+    </article>
+  </main>
+
+  <footer class="footer small">
+    <div class="container">© 2025 finstrument.ai — All data &amp; charts by TradingView.</div>
+  </footer>
+</body>
+
+</html>

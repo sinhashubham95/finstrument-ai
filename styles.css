@@ -313,7 +313,7 @@ nav a.active {
   border-top: 1px solid var(--border);
 }
 
-@media (max-width: 768px) {
+@media (max-width: 980px) {
   .nav {
     flex-wrap: wrap;
   }
@@ -353,12 +353,6 @@ nav a.active {
   .nav-links.open {
     display: block;
   }
-}
-
-@media (max-width: 380px) {
-  /* .logo span {
-    display: none;
-  } */
 }
 
 .container {

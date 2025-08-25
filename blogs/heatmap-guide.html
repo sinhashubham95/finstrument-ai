@@ -1,0 +1,289 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Meta -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+
+  <title>How to Read Market Heatmaps — finstrument.ai</title>
+  <meta name="description"
+    content="Learn to read stocks, forex, and crypto heatmaps quickly and spot opportunities using free tools on finstrument.ai." />
+  <link rel="canonical" href="https://finstrument.ai/blogs/heatmap-guide.html" />
+
+  <!-- Open Graph / Twitter -->
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="finstrument.ai" />
+  <meta property="og:title" content="How to Read Market Heatmaps — finstrument.ai" />
+  <meta property="og:description"
+    content="A fast, practical guide to reading market heatmaps with free TradingView widgets." />
+  <meta property="og:url" content="https://finstrument.ai/blogs/heatmap-guide.html" />
+  <meta property="og:image" content="https://finstrument.ai/assets/preview.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <!-- Assets -->
+  <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg" />
+  <link rel="stylesheet" href="../styles.css?v=blog-hm1" />
+  <script defer src="../app.js?v=blog-hm1"></script>
+
+  <!-- JSON-LD: Article -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"Article",
+    "headline":"How to Read Market Heatmaps",
+    "description":"A fast, practical guide to reading market heatmaps with free TradingView widgets.",
+    "author":{"@type":"Organization","name":"finstrument.ai"},
+    "publisher":{"@type":"Organization","name":"finstrument.ai"},
+    "datePublished":"2025-08-24",
+    "dateModified":"2025-08-24",
+    "mainEntityOfPage":{"@type":"WebPage","@id":"https://finstrument.ai/blogs/heatmap-guide.html"},
+    "image":"https://finstrument.ai/assets/preview.png"
+  }
+  </script>
+
+  <!-- JSON-LD: Breadcrumbs -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"BreadcrumbList",
+    "itemListElement":[
+      {"@type":"ListItem","position":1,"name":"Home","item":"https://finstrument.ai/"},
+      {"@type":"ListItem","position":2,"name":"Blog & Insights","item":"https://finstrument.ai/blogs/"},
+      {"@type":"ListItem","position":3,"name":"How to Read Market Heatmaps","item":"https://finstrument.ai/blogs/heatmap-guide.html"}
+    ]
+  }
+  </script>
+
+  <style>
+    /* Small page-specific polish; uses your CSS variables */
+    .blog-wrap {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 18px 16px 64px;
+    }
+
+    .post {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 18px;
+    }
+
+    .post h1 {
+      margin: 4px 0 10px;
+      font-size: 28px;
+    }
+
+    .post .sub {
+      color: var(--muted);
+      margin: 0 0 16px;
+    }
+
+    .post h2 {
+      margin-top: 22px;
+      font-size: 20px;
+    }
+
+    .post p {
+      line-height: 1.75;
+      color: var(--text);
+    }
+
+    .post ul {
+      padding-left: 18px;
+    }
+
+    .toc {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 12px;
+      margin: 12px 0 18px;
+    }
+
+    .toc a {
+      text-decoration: none;
+      color: var(--text);
+    }
+
+    .cta {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 14px;
+      margin-top: 20px;
+    }
+
+    .note {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .linkish {
+      color: #bfe9ff;
+      text-decoration: none;
+    }
+
+    .linkish:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="nav">
+      <button id="menu-toggle" class="menu-btn" aria-label="Open menu" aria-expanded="false"
+        aria-controls="primary-nav">
+        ☰
+      </button>
+      <a class="logo" href="../index.html" aria-label="finstrument.ai home">
+        <img src="../assets/logo.svg" alt="finstrument.ai logo" />
+        <span>finstrument.ai</span>
+      </a>
+      <nav id="primary-nav" class="nav-links" aria-label="Primary">
+        <ul>
+          <li><a href="../markets.html">Markets</a></li>
+          <li><a href="../heatmaps.html">Heatmaps</a></li>
+          <li><a href="../screener.html">Screeners</a></li>
+          <li><a href="../calendar.html">Calendar</a></li>
+          <li><a href="../faq.html">FAQ</a></li>
+          <li><a class="active" href="index.html">Blogs</a></li>
+        </ul>
+      </nav>
+      <form id="global-search-form" class="search" role="search" aria-label="Global instrument search">
+        <input id="global-search-input" name="q" type="search"
+          placeholder="Search: NSE:RELIANCE, NASDAQ:AAPL, BTCUSD, USDINR" autocomplete="off" />
+        <button type="submit" title="Go">Go</button>
+      </form>
+    </div>
+  </header>
+  <div id="drawer-backdrop" class="drawer-backdrop" hidden></div>
+  <aside id="mobile-drawer" class="drawer" aria-hidden="true" aria-label="Site menu">
+    <div class="drawer-header">
+      <span class="drawer-title">
+        <img src="assets/logo.svg" alt="" />
+        finstrument.ai
+      </span>
+      <button id="drawer-close" class="drawer-close" aria-label="Close menu">✕</button>
+    </div>
+    <form class="drawer-search" role="search"
+      onsubmit="event.preventDefault(); document.getElementById('global-search-input').value=this.q.value; document.getElementById('global-search-form').dispatchEvent(new Event('submit'));">
+      <input type="search" name="q" placeholder="Search any symbol…" />
+      <button type="submit">Go</button>
+    </form>
+    <nav class="drawer-nav" aria-label="Mobile">
+      <a href="../index.html">Home</a>
+      <a href="../markets.html">Markets</a>
+      <a href="../heatmaps.html">Heatmaps</a>
+      <a href="../screener.html">Screeners</a>
+      <a href="../calendar.html">Calendar</a>
+      <a href="../faq.html">FAQ</a>
+      <a href="index.html">Blogs</a>
+    </nav>
+    <div class="drawer-footer">
+      <small>© 2025 finstrument.ai</small>
+    </div>
+  </aside>
+  <div id="click-shield" aria-hidden="true"></div>
+
+  <main class="blog-wrap">
+    <article class="post">
+      <h1>How to Read Market Heatmaps</h1>
+      <p class="sub">A fast, practical guide to reading market heatmaps with free TradingView widgets on
+        finstrument.ai.</p>
+
+      <h2 id="what-is-a-heatmap">What is a heatmap?</h2>
+      <p>
+        A market heatmap shows performance as a grid of tiles. Each tile is a symbol; its color represents
+        relative change over a selected period. By compressing an entire market into one visual, heatmaps help
+        you spot broad themes (risk-on vs risk-off), sector leadership, and outliers in seconds.
+      </p>
+
+      <h2 id="color-and-scale">Color &amp; scale</h2>
+      <p>
+        Colors usually range from red (decline) to green (advance). The intensity shows magnitude: deeper hues
+        reflect stronger moves. Make sure you know the timeframe—daily vs weekly heatmaps can tell very
+        different stories. If everything looks uniformly green or red, it may be a broad macro move or a
+        high-correlation day.
+      </p>
+      <ul>
+        <li><strong>Greens:</strong> advancing symbols or sectors; stronger green = larger % change.</li>
+        <li><strong>Reds:</strong> declining symbols or sectors; stronger red = larger % drop.</li>
+        <li><strong>Neutral tones:</strong> little to no change.</li>
+      </ul>
+
+      <h2 id="tile-size">Tile size (weighting)</h2>
+      <p>
+        Tile size often reflects market capitalization or volume. Big tiles moving can have an outsized impact
+        on indices and overall sentiment. Watch for days where small caps are bright while mega caps are
+        flat—that divergence can signal rotation.
+      </p>
+
+      <h2 id="datasets">Datasets to choose</h2>
+      <p>
+        Pick the universe that answers your question. For broad equity trends, use major indices or country
+        baskets. For currency views, use the forex heatmap. For digital assets, switch to crypto.
+      </p>
+      <ul>
+        <li><strong>Equities:</strong> Country/region (e.g., India, US), sector breakdowns, index members.</li>
+        <li><strong>Forex:</strong> Currency strength and weakness, usually vs. USD or across majors.</li>
+        <li><strong>Crypto:</strong> Top coins by market cap or volume; rotation between majors and altcoins.
+        </li>
+      </ul>
+
+      <h2 id="use-cases">Fast use-cases</h2>
+      <ul>
+        <li><strong>Morning scan:</strong> See sector leaders/laggards to plan themes for the session.</li>
+        <li><strong>Breadth check:</strong> Gauge how many symbols are advancing vs. declining.</li>
+        <li><strong>Outlier hunt:</strong> Click standout tiles to open deeper analysis.</li>
+        <li><strong>Rotation watch:</strong> Spot when leadership shifts (e.g., defensives ↔ cyclicals).</li>
+      </ul>
+
+      <h2 id="on-finstrument">Using heatmaps on finstrument.ai</h2>
+      <p>
+        Visit the <a class="linkish" href="../heatmaps.html">Heatmaps</a> page to explore live stock, forex, and
+        crypto heatmaps powered by TradingView.
+        Click any tile to jump into detailed charts and insights on the instrument page.
+      </p>
+      <p>
+        From the heatmap, you can:
+      </p>
+      <ul>
+        <li>Open the instrument view for deeper analysis (advanced chart, news, technicals).</li>
+        <li>Switch to the <a class="linkish" href="../screener.html">Screeners</a> page to filter potential
+          trades.</li>
+        <li>Check context on the <a class="linkish" href="../index.html">Home</a> overview or <a class="linkish"
+            href="../markets.html">Markets</a> page.</li>
+      </ul>
+
+      <h2 id="pitfalls">Common pitfalls</h2>
+      <ul>
+        <li><strong>Wrong timeframe:</strong> Daily heatmaps can mask intraday reversals; align to your trading
+          horizon.</li>
+        <li><strong>Ignoring weight:</strong> Small-cap moves might be noisy; big tiles moving matter more for
+          indices.</li>
+        <li><strong>No catalyst check:</strong> Always glance at the <em>Economic Calendar</em> or news if a
+          sector is unusually hot or cold.</li>
+        <li><strong>One-dimensional read:</strong> Use heatmaps to prioritize, then confirm on a chart with
+          levels/volume.</li>
+      </ul>
+
+      <div class="cta">
+        <strong>Try it now:</strong> Explore the live <a class="linkish" href="../heatmaps.html">Heatmaps</a>
+        and click any tile to open a full chart on the instrument page.
+        For a step-by-step scan, start at the <a class="linkish" href="../index.html">Home overview</a>, then
+        drill into <a class="linkish" href="../markets.html">Markets</a> and <a class="linkish"
+          href="../screener.html">Screeners</a>.
+        <div class="note" style="margin-top:8px">All data &amp; charts © TradingView.</div>
+      </div>
+    </article>
+  </main>
+
+  <footer class="footer small">
+    <div class="container">© 2025 finstrument.ai — All data &amp; charts by TradingView.</div>
+  </footer>
+</body>
+
+</html>
