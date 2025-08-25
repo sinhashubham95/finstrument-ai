@@ -1,0 +1,273 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Meta -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+
+  <title>Trader's Mini-Glossary: Simple Definitions for Common Terms — finstrument.ai</title>
+  <meta name="description"
+    content="A concise glossary for traders. Clear, plain-English definitions for the most common market terms—designed to be fast to read and easy to remember." />
+  <link rel="canonical" href="https://finstrument.ai/blogs/trader-glossary.html" />
+
+  <!-- Open Graph / Twitter -->
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="finstrument.ai" />
+  <meta property="og:title" content="Trader's Mini-Glossary — finstrument.ai" />
+  <meta property="og:description"
+    content="Plain-English definitions for popular market terms: trend, breakout, ATR, liquidity, slippage, drawdown, R:R, and more." />
+  <meta property="og:url" content="https://finstrument.ai/blogs/trader-glossary.html" />
+  <meta property="og:image" content="https://finstrument.ai/assets/preview.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <!-- Assets -->
+  <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg" />
+  <link rel="stylesheet" href="../styles.css?v=blog-gloss1" />
+  <script defer src="../app.js?v=blog-gloss1"></script>
+
+  <!-- JSON-LD: Article -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"Article",
+    "headline":"Trader's Mini-Glossary: Simple Definitions for Common Terms",
+    "description":"A concise glossary for traders. Clear, plain-English definitions for the most common market terms—designed to be fast to read and easy to remember.",
+    "author":{"@type":"Organization","name":"finstrument.ai"},
+    "publisher":{"@type":"Organization","name":"finstrument.ai"},
+    "datePublished":"2025-08-24",
+    "dateModified":"2025-08-24",
+    "mainEntityOfPage":{"@type":"WebPage","@id":"https://finstrument.ai/blogs/trader-glossary.html"},
+    "image":"https://finstrument.ai/assets/preview.png"
+  }
+  </script>
+
+  <!-- JSON-LD: Breadcrumbs -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"BreadcrumbList",
+    "itemListElement":[
+      {"@type":"ListItem","position":1,"name":"Home","item":"https://finstrument.ai/"},
+      {"@type":"ListItem","position":2,"name":"Blog & Insights","item":"https://finstrument.ai/blogs/"},
+      {"@type":"ListItem","position":3,"name":"Trader's Mini-Glossary","item":"https://finstrument.ai/blogs/trader-glossary.html"}
+    ]
+  }
+  </script>
+
+  <style>
+    .blog-wrap {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 18px 16px 64px;
+    }
+
+    .post {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 18px;
+    }
+
+    .post h1 {
+      margin: 4px 0 10px;
+      font-size: 28px;
+    }
+
+    .post .sub {
+      color: var(--muted);
+      margin: 0 0 16px;
+    }
+
+    .term {
+      margin: 14px 0;
+    }
+
+    .term strong {
+      display: inline-block;
+      min-width: 180px;
+    }
+
+    .note {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .cta {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 14px;
+      margin-top: 20px;
+    }
+
+    .linkish {
+      color: #bfe9ff;
+      text-decoration: none;
+    }
+
+    .linkish:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 600px) {
+      .term strong {
+        min-width: 0;
+        display: block;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="nav">
+      <button id="menu-toggle" class="menu-btn" aria-label="Open menu" aria-expanded="false"
+        aria-controls="primary-nav">☰</button>
+      <a class="logo" href="../index.html" aria-label="finstrument.ai home">
+        <img src="../assets/logo.svg" alt="finstrument.ai logo" />
+        <span>finstrument.ai</span>
+      </a>
+      <nav id="primary-nav" class="nav-links" aria-label="Primary">
+        <ul>
+          <li><a href="../markets.html">Markets</a></li>
+          <li><a href="../heatmaps.html">Heatmaps</a></li>
+          <li><a href="../screener.html">Screeners</a></li>
+          <li><a href="../calendar.html">Calendar</a></li>
+          <li><a href="../faq.html">FAQ</a></li>
+          <li><a class="active" href="index.html">Blogs</a></li>
+        </ul>
+      </nav>
+      <form id="global-search-form" class="search" role="search" aria-label="Global instrument search">
+        <input id="global-search-input" name="q" type="search" placeholder="Search: terms, indicators, setups"
+          autocomplete="off" />
+        <button type="submit" title="Go">Go</button>
+      </form>
+    </div>
+  </header>
+
+  <!-- Drawer -->
+  <div id="drawer-backdrop" class="drawer-backdrop" hidden></div>
+  <aside id="mobile-drawer" class="drawer" aria-hidden="true" aria-label="Site menu">
+    <div class="drawer-header">
+      <span class="drawer-title"><img src="../assets/logo.svg" alt="" /> finstrument.ai</span>
+      <button id="drawer-close" class="drawer-close" aria-label="Close menu">✕</button>
+    </div>
+    <form class="drawer-search" role="search"
+      onsubmit="event.preventDefault(); document.getElementById('global-search-input').value=this.q.value; document.getElementById('global-search-form').dispatchEvent(new Event('submit'));">
+      <input type="search" name="q" placeholder="Search any symbol…" />
+      <button type="submit">Go</button>
+    </form>
+    <nav class="drawer-nav" aria-label="Mobile">
+      <a href="../index.html">Home</a>
+      <a href="../markets.html">Markets</a>
+      <a href="../heatmaps.html">Heatmaps</a>
+      <a href="../screener.html">Screeners</a>
+      <a href="../calendar.html">Calendar</a>
+      <a href="../faq.html">FAQ</a>
+      <a href="index.html">Blogs</a>
+    </nav>
+    <div class="drawer-footer"><small>© 2025 finstrument.ai</small></div>
+  </aside>
+  <div id="click-shield" aria-hidden="true"></div>
+
+  <main class="blog-wrap">
+    <article class="post">
+      <h1>Trader's Mini-Glossary: Simple Definitions for Common Terms</h1>
+      <p class="sub">Bookmark this page. Short, plain-English explanations you'll actually remember.</p>
+
+      <div class="term"><strong>Trend</strong> The general direction of price over time (up, down, sideways).
+      </div>
+      <div class="term"><strong>Support</strong> A price area where buyers tend to step in and price often
+        bounces.</div>
+      <div class="term"><strong>Resistance</strong> A price area where sellers tend to appear and rallies often
+        stall.</div>
+      <div class="term"><strong>Breakout</strong> Price moving out of a well-defined range/level with momentum.
+      </div>
+      <div class="term"><strong>Pullback</strong> A temporary move against the prevailing trend (a dip in an
+        uptrend).</div>
+      <div class="term"><strong>Reversal</strong> A change in the prevailing trend (up → down or down → up).</div>
+
+      <div class="term"><strong>Volatility</strong> How much price moves around its average; higher = more swings.
+      </div>
+      <div class="term"><strong>ATR (Average True Range)</strong> A volatility indicator that measures average
+        daily range.</div>
+      <div class="term"><strong>Beta</strong> How much an asset moves vs a benchmark (e.g., vs index). &gt;1 =
+        more volatile.</div>
+      <div class="term"><strong>Gap</strong> When price opens significantly above/below the prior close, leaving a
+        “hole”.</div>
+
+      <div class="term"><strong>Liquidity</strong> How easily you can buy/sell without moving the price much.
+      </div>
+      <div class="term"><strong>Slippage</strong> The difference between expected price and actual fill price.
+      </div>
+      <div class="term"><strong>Spread</strong> Difference between best bid and ask; tighter spreads are cheaper
+        to trade.</div>
+
+      <div class="term"><strong>MA (Moving Average)</strong> An average of past prices; smooths the chart (e.g.,
+        20/50/200 DMA).</div>
+      <div class="term"><strong>RSI</strong> Momentum indicator (0–100). Above ~60 = strong; below ~40 = weak
+        (context matters).</div>
+      <div class="term"><strong>MACD</strong> Momentum indicator using EMAs; crossovers hint at trend shifts.
+      </div>
+      <div class="term"><strong>VWAP</strong> Volume-weighted average price; intraday “fair value” reference.
+      </div>
+
+      <div class="term"><strong>RRR (Risk-Reward Ratio)</strong> Potential gain vs the loss you accept (e.g.,
+        2:1).</div>
+      <div class="term"><strong>Stop-loss</strong> Pre-defined exit level to cap losses if the trade is wrong.
+      </div>
+      <div class="term"><strong>Take-profit</strong> Pre-defined exit to book gains at a target.</div>
+      <div class="term"><strong>Position sizing</strong> How many shares/contracts you buy so that risk per trade
+        stays fixed.</div>
+      <div class="term"><strong>Drawdown</strong> Peak-to-trough decline in equity (or price) before a new high.
+      </div>
+
+      <div class="term"><strong>Correlation</strong> How two assets move together. Positive = same direction;
+        negative = opposite.</div>
+      <div class="term"><strong>Diversification</strong> Spreading risk across assets/sectors/strategies to reduce
+        variance.</div>
+      <div class="term"><strong>Hedging</strong> Offsetting risk in one position with another (e.g., long stock,
+        long put).</div>
+
+      <div class="term"><strong>Market order</strong> Buys/sells immediately at current best price.</div>
+      <div class="term"><strong>Limit order</strong> Buys/sells at a specified price or better; may not fill.
+      </div>
+      <div class="term"><strong>Stop order</strong> Triggers a market/limit order once a price level is hit.</div>
+
+      <div class="term"><strong>Leverage</strong> Using borrowed funds/margin to control a larger position.
+        Increases risk.</div>
+      <div class="term"><strong>Margin call</strong> Broker demand for more funds when equity falls below
+        maintenance levels.</div>
+
+      <div class="term"><strong>Fundamentals</strong> Company/economy basics (earnings, growth, inflation, rates,
+        etc.).</div>
+      <div class="term"><strong>Technical analysis</strong> Using price/volume/indicators to make trading
+        decisions.</div>
+      <div class="term"><strong>Sentiment</strong> The market's collective mood (risk-on vs risk-off).</div>
+
+      <div class="term"><strong>Backtest</strong> Testing a strategy on historical data to see how it might have
+        performed.</div>
+      <div class="term"><strong>Overfitting</strong> When a strategy is too tailored to past data and fails in
+        real trading.</div>
+      <div class="term"><strong>Edge</strong> A repeatable reason your trades have a positive expectancy over
+        time.</div>
+
+      <div class="cta">
+        <strong>Keep learning:</strong> See the <a class="linkish" href="../heatmaps.html">Heatmaps</a> to
+        visualize trends,
+        build scans on the <a class="linkish" href="../screener.html">Screeners</a>, and deep-dive a symbol on
+        the
+        <a class="linkish" href="../instrument.html">Instrument</a> page.
+        <div class="note" style="margin-top:8px">All data &amp; charts © TradingView. Educational content only,
+          not financial advice.</div>
+      </div>
+    </article>
+  </main>
+
+  <footer class="footer small">
+    <div class="container">© 2025 finstrument.ai — All data &amp; charts by TradingView.</div>
+  </footer>
+</body>
+
+</html>

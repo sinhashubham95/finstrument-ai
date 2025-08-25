@@ -1,0 +1,265 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Meta -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+
+  <title>Asian Session Cheatsheet: Tokyo–Singapore–Hong Kong — finstrument.ai</title>
+  <meta name="description"
+    content="Trade the Asian session with confidence: key market hours, what typically moves (JPY, AUD/NZD, CNH, Nikkei, Hang Seng), common setups, and how to track everything on finstrument.ai." />
+  <link rel="canonical" href="https://finstrument.ai/blogs/asian-session-cheatsheet.html" />
+
+  <!-- Open Graph / Twitter -->
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="finstrument.ai" />
+  <meta property="og:title" content="Asian Session Cheatsheet: Tokyo–Singapore–Hong Kong — finstrument.ai" />
+  <meta property="og:description"
+    content="A quick guide to the Asian trading session: timing, typical movers, volatility windows, and practical setups using free tools on finstrument.ai." />
+  <meta property="og:url" content="https://finstrument.ai/blogs/asian-session-cheatsheet.html" />
+  <meta property="og:image" content="https://finstrument.ai/assets/preview.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <!-- Assets -->
+  <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg" />
+  <link rel="stylesheet" href="../styles.css?v=blog-asia1" />
+  <script defer src="../app.js?v=blog-asia1"></script>
+
+  <!-- JSON-LD: Article -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"Article",
+    "headline":"Asian Session Cheatsheet: Tokyo–Singapore–Hong Kong",
+    "description":"A quick guide to the Asian trading session: timing, typical movers, volatility windows, and practical setups using free tools on finstrument.ai.",
+    "author":{"@type":"Organization","name":"finstrument.ai"},
+    "publisher":{"@type":"Organization","name":"finstrument.ai"},
+    "datePublished":"2025-08-24",
+    "dateModified":"2025-08-24",
+    "mainEntityOfPage":{"@type":"WebPage","@id":"https://finstrument.ai/blogs/asian-session-cheatsheet.html"},
+    "image":"https://finstrument.ai/assets/preview.png"
+  }
+  </script>
+
+  <!-- JSON-LD: Breadcrumbs -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"BreadcrumbList",
+    "itemListElement":[
+      {"@type":"ListItem","position":1,"name":"Home","item":"https://finstrument.ai/"},
+      {"@type":"ListItem","position":2,"name":"Blog & Insights","item":"https://finstrument.ai/blogs/"},
+      {"@type":"ListItem","position":3,"name":"Asian Session Cheatsheet","item":"https://finstrument.ai/blogs/asian-session-cheatsheet.html"}
+    ]
+  }
+  </script>
+
+  <style>
+    .blog-wrap {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 18px 16px 64px;
+    }
+
+    .post {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 18px;
+    }
+
+    .post h1 {
+      margin: 4px 0 10px;
+      font-size: 28px;
+    }
+
+    .post .sub {
+      color: var(--muted);
+      margin: 0 0 16px;
+    }
+
+    .post h2 {
+      margin-top: 22px;
+      font-size: 20px;
+    }
+
+    .post p {
+      line-height: 1.75;
+      color: var(--text);
+    }
+
+    .post ul {
+      padding-left: 18px;
+    }
+
+    .cta {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 14px;
+      margin-top: 20px;
+    }
+
+    .note {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .linkish {
+      color: #bfe9ff;
+      text-decoration: none;
+    }
+
+    .linkish:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="nav">
+      <button id="menu-toggle" class="menu-btn" aria-label="Open menu" aria-expanded="false"
+        aria-controls="primary-nav">☰</button>
+      <a class="logo" href="../index.html" aria-label="finstrument.ai home">
+        <img src="../assets/logo.svg" alt="finstrument.ai logo" />
+        <span>finstrument.ai</span>
+      </a>
+      <nav id="primary-nav" class="nav-links" aria-label="Primary">
+        <ul>
+          <li><a href="../markets.html">Markets</a></li>
+          <li><a href="../heatmaps.html">Heatmaps</a></li>
+          <li><a href="../screener.html">Screeners</a></li>
+          <li><a href="../calendar.html">Calendar</a></li>
+          <li><a href="../faq.html">FAQ</a></li>
+          <li><a class="active" href="index.html">Blogs</a></li>
+        </ul>
+      </nav>
+      <form id="global-search-form" class="search" role="search" aria-label="Global instrument search">
+        <input id="global-search-input" name="q" type="search" placeholder="Search: USDJPY, AUDUSD, CNH, NIKKEI, HSI"
+          autocomplete="off" />
+        <button type="submit" title="Go">Go</button>
+      </form>
+    </div>
+  </header>
+
+  <!-- Drawer -->
+  <div id="drawer-backdrop" class="drawer-backdrop" hidden></div>
+  <aside id="mobile-drawer" class="drawer" aria-hidden="true" aria-label="Site menu">
+    <div class="drawer-header">
+      <span class="drawer-title"><img src="../assets/logo.svg" alt="" /> finstrument.ai</span>
+      <button id="drawer-close" class="drawer-close" aria-label="Close menu">✕</button>
+    </div>
+    <form class="drawer-search" role="search"
+      onsubmit="event.preventDefault(); document.getElementById('global-search-input').value=this.q.value; document.getElementById('global-search-form').dispatchEvent(new Event('submit'));">
+      <input type="search" name="q" placeholder="Search any symbol…" />
+      <button type="submit">Go</button>
+    </form>
+    <nav class="drawer-nav" aria-label="Mobile">
+      <a href="../index.html">Home</a>
+      <a href="../markets.html">Markets</a>
+      <a href="../heatmaps.html">Heatmaps</a>
+      <a href="../screener.html">Screeners</a>
+      <a href="../calendar.html">Calendar</a>
+      <a href="../faq.html">FAQ</a>
+      <a href="index.html">Blogs</a>
+    </nav>
+    <div class="drawer-footer"><small>© 2025 finstrument.ai</small></div>
+  </aside>
+  <div id="click-shield" aria-hidden="true"></div>
+
+  <main class="blog-wrap">
+    <article class="post">
+      <h1>Asian Session Cheatsheet: Tokyo–Singapore–Hong Kong</h1>
+      <p class="sub">A quick playbook for navigating Asia’s trading hours—what moves, when volatility spikes, and
+        how to prepare with finstrument.ai.</p>
+
+      <h2>Why the Asian session matters</h2>
+      <p>
+        Asia sets the tone for the global day, digesting US/Europe leads and reacting to regional macro.
+        Liquidity is strongest around the Tokyo and Hong Kong opens, with China data adding bursts of
+        volatility. FX (JPY, AUD/NZD, CNH) and regional equity indices (Nikkei 225, Hang Seng) tend to drive the
+        narrative.
+      </p>
+
+      <h2>Key market hours (local references)</h2>
+      <ul>
+        <li><strong>Tokyo (JP):</strong> ~09:00–15:00 JST — early volatility in <em>USDJPY/JPY crosses</em>,
+          <em>Nikkei 225</em>.
+        </li>
+        <li><strong>Singapore (SG):</strong> ~09:00–17:00 SGT — hub for <em>Asian FX</em> and regional flows.
+        </li>
+        <li><strong>Hong Kong (HK):</strong> ~09:30–16:00 HKT — watch <em>Hang Seng</em> and <em>China
+            proxies</em>.</li>
+        <li><strong>Shanghai/Shenzhen (CN):</strong> ~09:30–15:00 CST — mainland equities; <em>CNH</em>
+          sentiment.</li>
+        <li><strong>Overlap with London:</strong> late Asia hours begin to blend with EU flows, adding
+          liquidity.</li>
+      </ul>
+
+      <h2>What typically moves</h2>
+      <ul>
+        <li><strong>JPY pairs:</strong> USDJPY, EURJPY, GBPJPY — sensitive to yields and Bank of Japan rhetoric.
+        </li>
+        <li><strong>AUD/NZD:</strong> risk proxies; react to commodities and China headlines.</li>
+        <li><strong>CNH (offshore yuan):</strong> macro sentiment gauge for China—watch policy/data days.</li>
+        <li><strong>Indices:</strong> Nikkei 225 (JP), Hang Seng (HK), China A-share proxies.</li>
+        <li><strong>Commodities:</strong> iron ore/industrial metals sentiment can show up via AUD and Asian
+          equities.</li>
+      </ul>
+
+      <h2>Volatility windows</h2>
+      <ul>
+        <li><strong>Tokyo open:</strong> first 30–60 minutes often see FX repricing, especially JPY crosses.
+        </li>
+        <li><strong>HK/China open:</strong> watch Hang Seng and CNH for direction on China-sensitive assets.
+        </li>
+        <li><strong>Data drops:</strong> China PMI, inflation, trade; Japan inflation/BoJ commentary; Australia
+          data (jobs, CPI).</li>
+      </ul>
+
+      <h2>Common setups</h2>
+      <ul>
+        <li><strong>Trend continuation in JPY pairs:</strong> join moves aligned with global yield direction.
+        </li>
+        <li><strong>China sentiment trades:</strong> Hang Seng leadership with CNH stability often supports
+          risk-on in Asia.</li>
+        <li><strong>Mean reversion around gaps:</strong> post-open gap fills on Nikkei/HSI when breadth is weak.
+        </li>
+        <li><strong>Event follow-through:</strong> trade sustained moves after high-importance data surprises.
+        </li>
+      </ul>
+
+      <h2>How to track on finstrument.ai</h2>
+      <p>
+        Use the <a class="linkish" href="../markets.html">Markets Overview</a> for cross-asset context (indices,
+        FX, commodities).
+        For a fast visual of leadership/laggards, open <a class="linkish" href="../heatmaps.html">Heatmaps</a>
+        and switch to <em>Forex</em> or regional equities.
+        Prep for incoming releases on the <a class="linkish" href="../calendar.html">Economic Calendar</a>.
+      </p>
+      <p>
+        When you spot a theme (e.g., strong JPY or China rebound), click through to the instrument page to
+        analyze a specific symbol:
+        <a class="linkish" href="../instrument.html?tvwidgetsymbol=OANDA:USDJPY">USDJPY</a>,
+        <a class="linkish" href="../instrument.html?tvwidgetsymbol=OANDA:AUDUSD">AUDUSD</a>,
+        <a class="linkish" href="../instrument.html?tvwidgetsymbol=HSI:HSI">Hang Seng Index</a>,
+        <a class="linkish" href="../instrument.html?tvwidgetsymbol=TVC:NI225">Nikkei 225</a>.
+      </p>
+
+      <div class="cta">
+        <strong>Pro tip:</strong> Mark Asia’s key open times on your chart and avoid chasing the first spike.
+        Let the initial volatility settle, then align trades with cross-asset confirmation.
+        <div class="note" style="margin-top:8px">All data &amp; charts © TradingView. Educational content only,
+          not financial advice.</div>
+      </div>
+    </article>
+  </main>
+
+  <footer class="footer small">
+    <div class="container">© 2025 finstrument.ai — All data &amp; charts by TradingView.</div>
+  </footer>
+</body>
+
+</html>

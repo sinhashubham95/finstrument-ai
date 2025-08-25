@@ -6,38 +6,38 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
 
-  <title>US Session Cheatsheet: Trading the New York Open — finstrument.ai</title>
+  <title>Risk & Position Sizing: The Core of Trading Discipline — finstrument.ai</title>
   <meta name="description"
-    content="Learn how to trade the US session effectively: overlaps, volatility bursts, sector rotations, and common setups around the New York open." />
-  <link rel="canonical" href="https://finstrument.ai/blogs/us-session-cheatsheet.html" />
+    content="A practical guide to risk management and position sizing for traders. Learn fixed % risk, ATR-based stops, and capital allocation frameworks using finstrument.ai." />
+  <link rel="canonical" href="https://finstrument.ai/blogs/risk-position-sizing.html" />
 
   <!-- Open Graph / Twitter -->
   <meta property="og:type" content="article" />
   <meta property="og:site_name" content="finstrument.ai" />
-  <meta property="og:title" content="US Session Cheatsheet: Trading the New York Open — finstrument.ai" />
+  <meta property="og:title" content="Risk & Position Sizing: The Core of Trading Discipline — finstrument.ai" />
   <meta property="og:description"
-    content="A practical guide to navigating the US trading session: overlaps, opening volatility, economic data, and key asset reactions." />
-  <meta property="og:url" content="https://finstrument.ai/blogs/us-session-cheatsheet.html" />
+    content="Frameworks for sizing trades: fixed % risk, ATR-based stops, and portfolio allocation rules—integrated with finstrument.ai tools." />
+  <meta property="og:url" content="https://finstrument.ai/blogs/risk-position-sizing.html" />
   <meta property="og:image" content="https://finstrument.ai/assets/preview.png" />
   <meta name="twitter:card" content="summary_large_image" />
 
   <!-- Assets -->
   <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg" />
-  <link rel="stylesheet" href="../styles.css?v=blog-us1" />
-  <script defer src="../app.js?v=blog-us1"></script>
+  <link rel="stylesheet" href="../styles.css?v=blog-risk1" />
+  <script defer src="../app.js?v=blog-risk1"></script>
 
   <!-- JSON-LD: Article -->
   <script type="application/ld+json">
   {
     "@context":"https://schema.org",
     "@type":"Article",
-    "headline":"US Session Cheatsheet: Trading the New York Open",
-    "description":"Learn how to trade the US session effectively: overlaps, volatility bursts, sector rotations, and common setups around the New York open.",
+    "headline":"Risk & Position Sizing: The Core of Trading Discipline",
+    "description":"Frameworks for sizing trades: fixed % risk, ATR-based stops, and portfolio allocation rules—integrated with finstrument.ai tools.",
     "author":{"@type":"Organization","name":"finstrument.ai"},
     "publisher":{"@type":"Organization","name":"finstrument.ai"},
     "datePublished":"2025-08-24",
     "dateModified":"2025-08-24",
-    "mainEntityOfPage":{"@type":"WebPage","@id":"https://finstrument.ai/blogs/us-session-cheatsheet.html"},
+    "mainEntityOfPage":{"@type":"WebPage","@id":"https://finstrument.ai/blogs/risk-position-sizing.html"},
     "image":"https://finstrument.ai/assets/preview.png"
   }
   </script>
@@ -50,7 +50,7 @@
     "itemListElement":[
       {"@type":"ListItem","position":1,"name":"Home","item":"https://finstrument.ai/"},
       {"@type":"ListItem","position":2,"name":"Blog & Insights","item":"https://finstrument.ai/blogs/"},
-      {"@type":"ListItem","position":3,"name":"US Session Cheatsheet","item":"https://finstrument.ai/blogs/us-session-cheatsheet.html"}
+      {"@type":"ListItem","position":3,"name":"Risk & Position Sizing","item":"https://finstrument.ai/blogs/risk-position-sizing.html"}
     ]
   }
   </script>
@@ -114,6 +114,14 @@
     .linkish:hover {
       text-decoration: underline;
     }
+
+    .example {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 12px;
+      margin-top: 10px;
+    }
   </style>
 </head>
 
@@ -137,8 +145,8 @@
         </ul>
       </nav>
       <form id="global-search-form" class="search" role="search" aria-label="Global instrument search">
-        <input id="global-search-input" name="q" type="search" placeholder="Search: SPX, NASDAQ, DXY, GOLD, BTCUSD"
-          autocomplete="off" />
+        <input id="global-search-input" name="q" type="search"
+          placeholder="Search: risk per trade, ATR, position sizing" autocomplete="off" />
         <button type="submit" title="Go">Go</button>
       </form>
     </div>
@@ -171,55 +179,55 @@
 
   <main class="blog-wrap">
     <article class="post">
-      <h1>US Session Cheatsheet: Trading the New York Open</h1>
-      <p class="sub">A quick playbook for navigating the most liquid and volatile trading window—the US session overlap
-        and NYSE open.</p>
+      <h1>Risk & Position Sizing: The Core of Trading Discipline</h1>
+      <p class="sub">Without risk management, even the best strategy fails. Learn how to size trades so one loss never
+        ruins your capital.</p>
 
-      <h2>Why the US session matters</h2>
+      <h2>1. Fixed % of capital per trade</h2>
       <p>
-        The New York session (8:00 AM–5:00 PM ET) overlaps with London for the first 4 hours, creating the heaviest
-        global liquidity. Indices, USD pairs, gold, oil, and crypto often see their biggest daily moves during this
-        window.
+        Risk only a small, fixed % of your capital on each trade—commonly 0.5% to 2%. If your account is ₹5,00,000 and
+        you risk 1%, your max loss per trade is ₹5,000. Position size = (risk capital ÷ stop distance).
       </p>
 
-      <h2>What to watch at the open</h2>
-      <ul>
-        <li><strong>Index futures:</strong> S&P 500, NASDAQ, Dow futures set tone before cash open.</li>
-        <li><strong>Bond yields:</strong> Treasuries influence USD and equities via rate expectations.</li>
-        <li><strong>DXY:</strong> Dollar strength/weakness drives most FX pairs.</li>
-        <li><strong>Commodities:</strong> Oil and gold react quickly to US macro flows.</li>
-        <li><strong>Crypto:</strong> BTC and ETH often move with risk sentiment in US hours.</li>
-      </ul>
-
-      <h2>Volatility bursts</h2>
+      <h2>2. ATR-based position sizing</h2>
       <p>
-        Expect sharp moves at:
+        The Average True Range (ATR) measures volatility. Wider ATR → bigger stop → smaller position. Narrow ATR →
+        tighter stop → larger position. This normalizes trade risk across calm vs volatile markets.
       </p>
+      <div class="example">
+        <strong>Example:</strong> Stock trades at ₹1000.
+        ATR(14) = 25. Stop = 2 × ATR = 50 points.
+        Risk per trade = ₹5000 → Position size = 5000 ÷ 50 = 100 shares.
+      </div>
+
+      <h2>3. Portfolio-level limits</h2>
       <ul>
-        <li><strong>8:30 AM ET:</strong> Economic releases (NFP, CPI, jobless claims, GDP).</li>
-        <li><strong>9:30 AM ET:</strong> NYSE open — equities gap and rebalance.</li>
-        <li><strong>2:00 PM ET:</strong> Fed announcements or minutes when scheduled.</li>
+        <li><strong>Max per trade:</strong> 1-2% of account equity.</li>
+        <li><strong>Max open risk:</strong> 5-8% across all positions.</li>
+        <li><strong>Correlated trades:</strong> Count related positions as one (e.g., NIFTY & BANKNIFTY).</li>
       </ul>
 
-      <h2>Common setups</h2>
-      <ul>
-        <li><strong>Breakout continuation:</strong> Join moves when strong macro data aligns with prior trend.</li>
-        <li><strong>Reversal fades:</strong> Fade extreme spikes if breadth/volume don't confirm.</li>
-        <li><strong>News catalysts:</strong> Trade clean directional reactions to jobs, CPI, or Fed events.</li>
-      </ul>
-
-      <h2>How to track on finstrument.ai</h2>
+      <h2>4. Event & volatility adjustments</h2>
       <p>
-        Use the <a class="linkish" href="../markets.html">Markets Overview</a> to watch indices, yields, USD, and
-        commodities live. Switch to <a class="linkish" href="../calendar.html">Economic Calendar</a> to prep for
-        scheduled data. Confirm sector rotations with <a class="linkish" href="../heatmaps.html">Heatmaps</a>.
+        Cut size ahead of major events (Fed, RBI, earnings). If VIX spikes, scale down exposure. When volatility
+        compresses, you can increase slightly.
+      </p>
+
+      <h2>5. Using finstrument.ai to apply risk</h2>
+      <p>
+        On the <a class="linkish" href="../instrument.html">Instrument page</a>, check ATR and recent swing levels to
+        set stops.
+        Use <a class="linkish" href="../screener.html">Screeners</a> to find trades, then apply your sizing rules before
+        execution.
+        Cross-check correlations on the <a class="linkish" href="../heatmaps.html">Heatmaps</a> and <a class="linkish"
+          href="../markets.html">Markets</a>.
       </p>
 
       <div class="cta">
-        <strong>Pro tip:</strong> Treat the first 30 minutes after the open as "price discovery"—let volatility settle
-        before chasing moves. Then align trades with cross-asset signals.
-        <div class="note" style="margin-top:8px">All data &amp; charts © TradingView. This guide is educational only,
-          not financial advice.</div>
+        <strong>Pro tip:</strong> Journaling position size vs outcome improves discipline. Over time, you'll see that
+        survival and steady compounding matter more than chasing huge wins.
+        <div class="note" style="margin-top:8px">All data & charts © TradingView. This content is educational, not
+          financial advice.</div>
       </div>
     </article>
   </main>
